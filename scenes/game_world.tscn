@@ -94,7 +94,6 @@ mesh = SubResource("PlaneMesh_uukry")
 
 [node name="Camera" type="Camera3D" parent="Map/Room 2"]
 transform = Transform3D(0.317305, 0.397776, -0.860867, -9.45642e-09, 0.907777, 0.419452, 0.948324, -0.133094, 0.288042, -19.4989, 16.8785, 5.48)
-current = true
 
 [node name="CameraActivator" type="Area3D" parent="Map/Room 2" node_paths=PackedStringArray("camera")]
 transform = Transform3D(-0.16904, 0, -0.985609, 0, 1, 0, 0.985609, 0, -0.16904, 6.4996, 2.2351, 6.27213)
