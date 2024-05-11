@@ -1,9 +1,29 @@
 # GODOT WILD JAM 69
 
 ## Team Name:
-
-Comming soon..
+Flaming Walrus Studio
 
 ## Members:
+aNamee
+995049309902999714
 
-Comming soon..
+gadielthegreat
+1058958346205544488
+
+GeraltDieSocke
+405291586357035008
+
+zuzupetals3777
+652729182312202260
+
+J
+340539984773906445
+
+mickadevendome
+407671960844369920
+
+Rather Radical Dan
+304409662080548865
+
+vanstral
+341688720656957482
