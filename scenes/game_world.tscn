@@ -68,7 +68,7 @@ size = Vector2(4, 4)
 [node name="GameWorld" type="Node3D"]
 
 [node name="Player" type="CharacterBody3D" parent="." groups=["player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.1461, 14.3785, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.1461, 1.64095, 0)
 script = ExtResource("1_vcuue")
 metadata/_edit_group_ = true
 
