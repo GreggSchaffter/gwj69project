@@ -123,9 +123,10 @@ shape = SubResource("BoxShape3D_m6g6y")
 [node name="Lock" type="Node3D" parent="Map/Room 1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.37059, 0, 5.2915)
 
-[node name="Puzzle" parent="Map/Room 1/Lock" node_paths=PackedStringArray("canvas_layer", "active_area") instance=ExtResource("3_tu7mj")]
+[node name="Puzzle" parent="Map/Room 1/Lock" node_paths=PackedStringArray("canvas_layer", "active_area", "camera_point") instance=ExtResource("3_tu7mj")]
 canvas_layer = NodePath("../CanvasLayer")
 active_area = NodePath("../Area3D")
+camera_point = NodePath("../CameraPoint")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Room 1/Lock"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000572205, 2.00024, -0.000686646)
@@ -185,6 +186,9 @@ theme_override_font_sizes/normal_font_size = 96
 text = "0"
 autowrap_mode = 0
 script = SubResource("GDScript_5xave")
+
+[node name="CameraPoint" type="Marker3D" parent="Map/Room 1/Lock"]
+transform = Transform3D(-0.181274, 0.173441, -0.968017, 7.70908e-09, 0.984325, 0.176363, 0.983433, 0.0319701, -0.178433, -2.17642, 2.03517, -0.164028)
 
 [node name="Center" type="Marker3D" parent="Map/Room 1"]
 gizmo_extents = 2.5
