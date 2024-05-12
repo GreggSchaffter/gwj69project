@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://ywtln2wf5qqo"]
+[gd_scene load_steps=19 format=3 uid="uid://ywtln2wf5qqo"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_vcuue"]
 [ext_resource type="Script" path="res://scripts/CameraActivator.gd" id="2_eyww8"]
+[ext_resource type="Script" path="res://scripts/Camera.gd" id="2_nitq1"]
 [ext_resource type="PackedScene" uid="uid://ct3bqlowjvnm6" path="res://stuff/puzzle.tscn" id="3_tu7mj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vx2bk"]
@@ -100,9 +101,15 @@ shape = SubResource("BoxShape3D_373ce")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Room 1/Static"]
 mesh = SubResource("PlaneMesh_uukry")
 
-[node name="Camera" type="Camera3D" parent="Map/Room 1"]
-transform = Transform3D(0.317305, 0.397776, -0.860867, -9.45642e-09, 0.907777, 0.419452, 0.948324, -0.133094, 0.288042, -19.4989, 16.8785, 5.48)
+[node name="Camera" type="Camera3D" parent="Map/Room 1" node_paths=PackedStringArray("center")]
+transform = Transform3D(0.317305, 0.397776, -0.860867, -9.45642e-09, 0.907778, 0.419452, 0.948324, -0.133094, 0.288042, -19.4989, 16.8785, 5.48)
 current = true
+script = ExtResource("2_nitq1")
+center = NodePath("../Center")
+dist_from_center = 10
+hight = 5
+
+[node name="Looker" type="Marker3D" parent="Map/Room 1/Camera"]
 
 [node name="CameraActivator" type="Area3D" parent="Map/Room 1" node_paths=PackedStringArray("camera")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.79766, 2.2351, -6.87099)
@@ -178,6 +185,9 @@ theme_override_font_sizes/normal_font_size = 96
 text = "0"
 autowrap_mode = 0
 script = SubResource("GDScript_5xave")
+
+[node name="Center" type="Marker3D" parent="Map/Room 1"]
+gizmo_extents = 2.5
 
 [node name="Room 2" type="Node3D" parent="Map"]
 transform = Transform3D(0.894357, 0, -0.447353, 0, 1, 0, 0.447353, 0, 0.894357, -40.813, 0, -31.674)
