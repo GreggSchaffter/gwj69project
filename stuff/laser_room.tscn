@@ -17,10 +17,10 @@ size = Vector3(10, 5, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_miqw1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uj78e"]
-size = Vector3(0.1, 0.5, 0.5)
+size = Vector3(0.1, 0.5, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ka13l"]
-size = Vector3(0.5, 0.5, 0.1)
+size = Vector3(1, 0.5, 0.1)
 
 [node name="LaserRoom" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -91,7 +91,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.55)
 shape = SubResource("BoxShape3D_ka13l")
 
 [connection signal="body_entered" from="CameraActivator" to="CameraActivator" method="_on_body_entered"]
-[connection signal="body_entered" from="MovableBlock/AnimatableBody3D/+X" to="MovableBlock" method="_plus_x"]
-[connection signal="body_entered" from="MovableBlock/AnimatableBody3D/-X" to="MovableBlock" method="_minus_x"]
-[connection signal="body_entered" from="MovableBlock/AnimatableBody3D/+Z" to="MovableBlock" method="_plus_z"]
-[connection signal="body_entered" from="MovableBlock/AnimatableBody3D/-Z" to="MovableBlock" method="_minus_z"]
