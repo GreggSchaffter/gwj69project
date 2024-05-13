@@ -1,0 +1,97 @@
+[gd_scene load_steps=10 format=3 uid="uid://dyljlrb6vn1yy"]
+
+[ext_resource type="Script" path="res://scripts/CameraActivator.gd" id="1_1x0yd"]
+[ext_resource type="Script" path="res://scripts/MovableBlock.gd" id="2_ewoup"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_373ce"]
+size = Vector3(20, 0, 20)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_uukry"]
+size = Vector2(20, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m6g6y"]
+size = Vector3(10, 5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vahh0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_miqw1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uj78e"]
+size = Vector3(0.1, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ka13l"]
+size = Vector3(0.5, 0.5, 0.1)
+
+[node name="LaserRoom" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Static" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Static"]
+shape = SubResource("BoxShape3D_373ce")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Static"]
+mesh = SubResource("PlaneMesh_uukry")
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(0.317305, 0.397776, -0.860867, -9.45642e-09, 0.907777, 0.419452, 0.948324, -0.133094, 0.288042, -19.4989, 16.8785, 5.48)
+
+[node name="CameraActivator" type="Area3D" parent="." node_paths=PackedStringArray("camera")]
+transform = Transform3D(-0.16904, 0, -0.985609, 0, 1, 0, 0.985609, 0, -0.16904, 6.4996, 2.2351, 6.27213)
+script = ExtResource("1_1x0yd")
+camera = NodePath("../Camera")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraActivator"]
+transform = Transform3D(0.803836, 0, -0.594851, 0, 1, 0, 0.594851, 0, 0.803836, 0, 0, 0)
+shape = SubResource("BoxShape3D_m6g6y")
+
+[node name="MovableBlock" type="Node3D" parent="."]
+script = ExtResource("2_ewoup")
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="MovableBlock"]
+remote_path = NodePath("../AnimatableBody3D")
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="MovableBlock"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MovableBlock/AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_vahh0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MovableBlock/AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_miqw1")
+
+[node name="+X" type="Area3D" parent="MovableBlock/AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MovableBlock/AnimatableBody3D/+X"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 0, 0)
+shape = SubResource("BoxShape3D_uj78e")
+
+[node name="-X" type="Area3D" parent="MovableBlock/AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MovableBlock/AnimatableBody3D/-X"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 0, 0)
+shape = SubResource("BoxShape3D_uj78e")
+
+[node name="+Z" type="Area3D" parent="MovableBlock/AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MovableBlock/AnimatableBody3D/+Z"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.55)
+shape = SubResource("BoxShape3D_ka13l")
+
+[node name="-Z" type="Area3D" parent="MovableBlock/AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MovableBlock/AnimatableBody3D/-Z"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.55)
+shape = SubResource("BoxShape3D_ka13l")
+
+[connection signal="body_entered" from="CameraActivator" to="CameraActivator" method="_on_body_entered"]
+[connection signal="body_entered" from="MovableBlock/AnimatableBody3D/+X" to="MovableBlock" method="_plus_x"]
+[connection signal="body_entered" from="MovableBlock/AnimatableBody3D/-X" to="MovableBlock" method="_minus_x"]
+[connection signal="body_entered" from="MovableBlock/AnimatableBody3D/+Z" to="MovableBlock" method="_plus_z"]
+[connection signal="body_entered" from="MovableBlock/AnimatableBody3D/-Z" to="MovableBlock" method="_minus_z"]

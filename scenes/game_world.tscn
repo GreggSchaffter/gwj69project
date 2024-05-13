@@ -1,9 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://ywtln2wf5qqo"]
+[gd_scene load_steps=20 format=3 uid="uid://ywtln2wf5qqo"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_vcuue"]
 [ext_resource type="Script" path="res://scripts/CameraActivator.gd" id="2_eyww8"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="2_nitq1"]
 [ext_resource type="PackedScene" uid="uid://ct3bqlowjvnm6" path="res://stuff/puzzle.tscn" id="3_tu7mj"]
+[ext_resource type="PackedScene" uid="uid://dyljlrb6vn1yy" path="res://stuff/laser_room.tscn" id="5_nf73n"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vx2bk"]
 
@@ -194,29 +195,8 @@ transform = Transform3D(-0.181274, 0.173441, -0.968017, 7.70908e-09, 0.984325, 0
 [node name="Center" type="Marker3D" parent="Map/Room 1"]
 gizmo_extents = 2.5
 
-[node name="Room 2" type="Node3D" parent="Map"]
-transform = Transform3D(0.894357, 0, -0.447353, 0, 1, 0, 0.447353, 0, 0.894357, -40.813, 0, -31.674)
-metadata/_edit_group_ = true
-
-[node name="Static" type="StaticBody3D" parent="Map/Room 2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Room 2/Static"]
-shape = SubResource("BoxShape3D_373ce")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Room 2/Static"]
-mesh = SubResource("PlaneMesh_uukry")
-
-[node name="Camera" type="Camera3D" parent="Map/Room 2"]
-transform = Transform3D(0.317305, 0.397776, -0.860867, -9.45642e-09, 0.907777, 0.419452, 0.948324, -0.133094, 0.288042, -19.4989, 16.8785, 5.48)
-
-[node name="CameraActivator" type="Area3D" parent="Map/Room 2" node_paths=PackedStringArray("camera")]
-transform = Transform3D(-0.16904, 0, -0.985609, 0, 1, 0, 0.985609, 0, -0.16904, 6.4996, 2.2351, 6.27213)
-script = ExtResource("2_eyww8")
-camera = NodePath("../Camera")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Room 2/CameraActivator"]
-transform = Transform3D(0.803836, 0, -0.594851, 0, 1, 0, 0.594851, 0, 0.803836, 0, 0, 0)
-shape = SubResource("BoxShape3D_m6g6y")
+[node name="LaserRoom" parent="Map" instance=ExtResource("5_nf73n")]
+transform = Transform3D(0.894154, 0, -0.447759, 0, 1, 0, 0.447759, 0, 0.894154, -40.81, 0, -31.674)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Map"]
 transform = Transform3D(0.976481, 0, -0.215605, 0, 1, 0, 0.215605, 0, 0.976481, -39.2481, 0, -14.9621)
@@ -231,4 +211,3 @@ mesh = SubResource("PlaneMesh_v0rvw")
 [connection signal="body_entered" from="Map/Room 1/CameraActivator" to="Map/Room 1/CameraActivator" method="_on_body_entered"]
 [connection signal="pressed" from="Map/Room 1/Lock/CanvasLayer/+" to="Map/Room 1/Lock/CanvasLayer/RichTextLabel" method="_add"]
 [connection signal="pressed" from="Map/Room 1/Lock/CanvasLayer/-" to="Map/Room 1/Lock/CanvasLayer/RichTextLabel" method="_subtract"]
-[connection signal="body_entered" from="Map/Room 2/CameraActivator" to="Map/Room 2/CameraActivator" method="_on_body_entered"]
