@@ -8,10 +8,16 @@ extends Node3D
 
 
 const STEP_SIZE = 2;
+const SPEED = 0.5;
+
+
 
 @export var moving = false
 
 func _process(_delta):
+	if moving:
+		return
+	
 	if has_player(plus_x):
 		move(Vector3.RIGHT)
 	elif has_player(minus_x):
@@ -22,12 +28,9 @@ func _process(_delta):
 		move(Vector3.BACK)
 
 func move(dir):
-	if moving:
-		return
-	
 	var movement_tween = get_tree().create_tween()
 	var going_to = remote_transform.position + dir * STEP_SIZE
-	movement_tween.tween_property(remote_transform, "position", going_to, 1)
+	movement_tween.tween_property(remote_transform, "position", going_to, SPEED)
 	movement_tween.connect("finished", done_moving)
 	moving = true
 
