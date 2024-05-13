@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://byj1h01xr5t52"]
+
+[ext_resource type="Script" path="res://scripts/MovableBlock.gd" id="1_d4rjr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vahh0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_miqw1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uj78e"]
+size = Vector3(0.1, 0.5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ka13l"]
+size = Vector3(1, 0.5, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lll8k"]
+size = Vector3(0.25, 0.25, 0.25)
+
+[node name="MovableBlock" type="Node3D"]
+script = ExtResource("1_d4rjr")
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="."]
+remote_path = NodePath("../AnimatableBody3D")
+update_rotation = false
+update_scale = false
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="." groups=["Movable Block"]]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_vahh0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_miqw1")
+
+[node name="+X" type="Area3D" parent="AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D/+X"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, 0, 0)
+shape = SubResource("BoxShape3D_uj78e")
+
+[node name="-X" type="Area3D" parent="AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D/-X"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, 0, 0)
+shape = SubResource("BoxShape3D_uj78e")
+
+[node name="+Z" type="Area3D" parent="AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D/+Z"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.55)
+shape = SubResource("BoxShape3D_ka13l")
+
+[node name="-Z" type="Area3D" parent="AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D/-Z"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.55)
+shape = SubResource("BoxShape3D_ka13l")
+
+[node name="BoxCast" type="ShapeCast3D" parent="AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_lll8k")
+target_position = Vector3(0, 0, 0)
