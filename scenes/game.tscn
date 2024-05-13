@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dlirql6mblhic"]
 
-[ext_resource type="PackedScene" uid="uid://hkpgjn7qko3l" path="res://scenes/password_puzzle.tscn" id="1_uapnt"]
+[ext_resource type="PackedScene" uid="uid://hkpgjn7qko3l" path="res://scenes/PasswordPuzzle/password_puzzle.tscn" id="1_uapnt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kvaux"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
