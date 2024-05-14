@@ -58,7 +58,6 @@ func will_smash_box():
 	var amount_of_collions = box_cast.get_collision_count()
 	for id in amount_of_collions:
 		var collider  = box_cast.get_collider(id)
-		#collider.hide()
 		if collider.is_in_group("Movable Block"):
 			return true
 		return false

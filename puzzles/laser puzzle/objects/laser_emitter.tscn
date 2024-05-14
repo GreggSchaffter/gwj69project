@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://1ciovxvkhwjq"]
+
+[ext_resource type="PackedScene" uid="uid://byj1h01xr5t52" path="res://puzzles/laser puzzle/movable_block.tscn" id="1_sn6yp"]
+[ext_resource type="PackedScene" uid="uid://qihhrt4cuecd" path="res://puzzles/laser puzzle/laser.tscn" id="2_ibpbj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rvxfa"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_58plw"]
+material = SubResource("StandardMaterial3D_rvxfa")
+
+[sub_resource type="BoxMesh" id="BoxMesh_w8wvw"]
+material = SubResource("StandardMaterial3D_rvxfa")
+size = Vector3(1, 1, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sah5n"]
+size = Vector3(1, 1, 0.5)
+
+[node name="LaserEmitter" type="Node3D"]
+
+[node name="MovableBlock" parent="." instance=ExtResource("1_sn6yp")]
+
+[node name="MeshInstance3D" parent="MovableBlock/AnimatableBody3D" index="0"]
+mesh = SubResource("BoxMesh_58plw")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MovableBlock/AnimatableBody3D" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -0.25)
+mesh = SubResource("BoxMesh_w8wvw")
+
+[node name="Laser" parent="MovableBlock/AnimatableBody3D" index="8" node_paths=PackedStringArray("body") instance=ExtResource("2_ibpbj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+body = NodePath("..")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="MovableBlock/AnimatableBody3D" index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -0.25)
+shape = SubResource("BoxShape3D_sah5n")
+
+[editable path="MovableBlock"]

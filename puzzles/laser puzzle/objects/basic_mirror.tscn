@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://d0xv1ar0230t7"]
+
+[ext_resource type="PackedScene" uid="uid://byj1h01xr5t52" path="res://puzzles/laser puzzle/movable_block.tscn" id="1_luhfd"]
+[ext_resource type="Script" path="res://puzzles/laser puzzle/Mirror.gd" id="2_or7nr"]
+[ext_resource type="PackedScene" uid="uid://qihhrt4cuecd" path="res://puzzles/laser puzzle/laser.tscn" id="3_31563"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_poqab"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4bh7v"]
+material = SubResource("StandardMaterial3D_poqab")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ufb7r"]
+metallic = 1.0
+roughness = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_vyptj"]
+material = SubResource("StandardMaterial3D_ufb7r")
+size = Vector3(1, 1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jgwf6"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qc8jd"]
+material = SubResource("StandardMaterial3D_jgwf6")
+top_radius = 0.25
+bottom_radius = 0.25
+height = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pg6fx"]
+size = Vector3(1, 1, 0.1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_86qd3"]
+height = 1.0
+radius = 0.25
+
+[node name="BasicMirror" type="Node3D"]
+
+[node name="MovableBlock" parent="." instance=ExtResource("1_luhfd")]
+
+[node name="MeshInstance3D" parent="MovableBlock/AnimatableBody3D" index="0"]
+mesh = SubResource("BoxMesh_4bh7v")
+
+[node name="Mirror" type="Node" parent="MovableBlock/AnimatableBody3D" index="7" node_paths=PackedStringArray("plus_z", "minus_x")]
+script = ExtResource("2_or7nr")
+plus_z = [NodePath("../Laser2")]
+minus_x = [NodePath("../Laser")]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MovableBlock/AnimatableBody3D" index="8"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0.035, 1.5, -0.035)
+mesh = SubResource("BoxMesh_vyptj")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="MovableBlock/AnimatableBody3D" index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18, 1.48774, -0.18)
+mesh = SubResource("CylinderMesh_qc8jd")
+
+[node name="MeshInstance3D4" type="CollisionShape3D" parent="MovableBlock/AnimatableBody3D" index="10"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0.035, 1.5, -0.035)
+shape = SubResource("BoxShape3D_pg6fx")
+
+[node name="MeshInstance3D5" type="CollisionShape3D" parent="MovableBlock/AnimatableBody3D" index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18, 1.48774, -0.18)
+shape = SubResource("CylinderShape3D_86qd3")
+
+[node name="Laser" parent="MovableBlock/AnimatableBody3D" index="12" node_paths=PackedStringArray("body") instance=ExtResource("3_31563")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+visible = false
+body = NodePath("..")
+
+[node name="Laser2" parent="MovableBlock/AnimatableBody3D" index="13" node_paths=PackedStringArray("body") instance=ExtResource("3_31563")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.5, 0)
+visible = false
+body = NodePath("..")
+
+[editable path="MovableBlock"]
