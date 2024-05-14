@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2alcsctijseq"]
+[gd_scene load_steps=8 format=3 uid="uid://b2alcsctijseq"]
 
+[ext_resource type="Script" path="res://puzzles/laser puzzle/block.gd" id="1_eka6e"]
 [ext_resource type="PackedScene" uid="uid://byj1h01xr5t52" path="res://puzzles/laser puzzle/movable_block.tscn" id="1_l0blv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_woolb"]
@@ -19,6 +20,7 @@ size = Vector3(0.75, 1, 0.75)
 size = Vector3(0.75, 1, 0.75)
 
 [node name="LaserBlocker" type="Node3D"]
+script = ExtResource("1_eka6e")
 
 [node name="MovableBlock" parent="." instance=ExtResource("1_l0blv")]
 

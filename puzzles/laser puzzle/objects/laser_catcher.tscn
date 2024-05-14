@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://dmmff1wjutekn"]
+
+[ext_resource type="Script" path="res://puzzles/laser puzzle/block.gd" id="1_e6wdp"]
+[ext_resource type="PackedScene" uid="uid://byj1h01xr5t52" path="res://puzzles/laser puzzle/movable_block.tscn" id="1_ydi85"]
+[ext_resource type="Script" path="res://puzzles/laser puzzle/LaserCatcher.gd" id="2_qubmm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a88s8"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4oqv8"]
+material = SubResource("StandardMaterial3D_a88s8")
+
+[sub_resource type="BoxMesh" id="BoxMesh_n0ax7"]
+material = SubResource("StandardMaterial3D_a88s8")
+size = Vector3(0.5, 1, 0.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i8u5p"]
+size = Vector3(0.5, 1, 0.25)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_acfn3"]
+top_radius = 0.125
+bottom_radius = 0.25
+height = 0.125
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iknu7"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rn8cc"]
+material = SubResource("StandardMaterial3D_iknu7")
+size = Vector3(0.425, 0.74, 0.125)
+
+[node name="LaserCatcher" type="Node3D"]
+script = ExtResource("1_e6wdp")
+
+[node name="MovableBlock" parent="." instance=ExtResource("1_ydi85")]
+
+[node name="MeshInstance3D" parent="MovableBlock/AnimatableBody3D" index="0"]
+mesh = SubResource("BoxMesh_4oqv8")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MovableBlock/AnimatableBody3D" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -0.375)
+mesh = SubResource("BoxMesh_n0ax7")
+
+[node name="Collision" type="CollisionShape3D" parent="MovableBlock/AnimatableBody3D" index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -0.375)
+shape = SubResource("BoxShape3D_i8u5p")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="MovableBlock/AnimatableBody3D" index="9"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.5, -0.190231)
+mesh = SubResource("CylinderMesh_acfn3")
+
+[node name="LaserCatcher" type="Node" parent="MovableBlock/AnimatableBody3D" index="10"]
+script = ExtResource("2_qubmm")
+
+[node name="Flag" type="MeshInstance3D" parent="MovableBlock/AnimatableBody3D" index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.33604, -0.377736)
+mesh = SubResource("BoxMesh_rn8cc")
+
+[editable path="MovableBlock"]

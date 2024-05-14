@@ -28,7 +28,6 @@ func _process(_delta):
 func reflect(laser_rot):
 	var from_rot = laser_rot - get_parent().global_rotation
 	var deg = round(rad_to_deg(from_rot.y) / 90) * 90
-	print(deg)
 	
 	if test(deg, -180):
 		activate(plus_z)

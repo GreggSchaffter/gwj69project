@@ -13,7 +13,8 @@ const STEP_SIZE = 1;
 const SPEED = 0.5;
 
 
-@export var moving = false
+var moving = false
+@export var movable = true;
 
 func _ready():
 	force_grid()
@@ -29,7 +30,7 @@ func _process(_delta):
 		move(Vector3.BACK)
 
 func move(dir):
-	if moving:
+	if moving || !movable:
 		return
 	
 	# Use a shapecast in order to make sure that the box is not moving into another box

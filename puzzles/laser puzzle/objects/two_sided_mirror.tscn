@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cqn50q2w5e3dg"]
+[gd_scene load_steps=10 format=3 uid="uid://cqn50q2w5e3dg"]
 
 [ext_resource type="PackedScene" uid="uid://byj1h01xr5t52" path="res://puzzles/laser puzzle/movable_block.tscn" id="1_6b1kk"]
+[ext_resource type="Script" path="res://puzzles/laser puzzle/block.gd" id="1_vn7tr"]
 [ext_resource type="PackedScene" uid="uid://qihhrt4cuecd" path="res://puzzles/laser puzzle/laser.tscn" id="2_gn7ql"]
 [ext_resource type="PackedScene" uid="uid://bwhff16qho8wq" path="res://puzzles/laser puzzle/mirror.tscn" id="2_nocgm"]
 
@@ -22,6 +23,7 @@ size = Vector3(1, 1, 0)
 size = Vector3(1, 1, 0)
 
 [node name="TwoSidedMirror" type="Node3D"]
+script = ExtResource("1_vn7tr")
 
 [node name="MovableBlock" parent="." instance=ExtResource("1_6b1kk")]
 

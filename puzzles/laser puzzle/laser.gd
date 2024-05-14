@@ -19,13 +19,13 @@ func _process(_delta):
 		mesh_holder.scale.z = distance;
 		
 		var collision_body: Node = ray_cast.get_collider()
+		
 		if collision_body.has_node("Mirror"):
 			var mirror_node = collision_body.get_node("Mirror")
-			#var source = MeshInstance3D.new()
-			#source.name = "Source"
-			#source.mesh = BoxMesh.new()
-			#mirror_node.add_child(source)
-			#source.global_position = global_position
 			mirror_node.reflect(global_rotation)
+		
+		if collision_body.has_node("LaserCatcher"):
+			var catcher_node = collision_body.get_node("LaserCatcher")
+			catcher_node.zap(global_rotation)
 	else:
 		mesh_holder.scale.z = 30;
