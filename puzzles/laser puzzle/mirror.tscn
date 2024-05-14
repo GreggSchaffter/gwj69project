@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwhff16qho8wq"]
+
+[ext_resource type="Script" path="res://puzzles/laser puzzle/Mirror.gd" id="1_ajnop"]
+
+[node name="Mirror" type="Node"]
+script = ExtResource("1_ajnop")

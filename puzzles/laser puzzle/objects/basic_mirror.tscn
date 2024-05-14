@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://d0xv1ar0230t7"]
 
 [ext_resource type="PackedScene" uid="uid://byj1h01xr5t52" path="res://puzzles/laser puzzle/movable_block.tscn" id="1_luhfd"]
-[ext_resource type="Script" path="res://puzzles/laser puzzle/Mirror.gd" id="2_or7nr"]
+[ext_resource type="PackedScene" uid="uid://bwhff16qho8wq" path="res://puzzles/laser puzzle/mirror.tscn" id="2_mq1g7"]
 [ext_resource type="PackedScene" uid="uid://qihhrt4cuecd" path="res://puzzles/laser puzzle/laser.tscn" id="3_31563"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_poqab"]
@@ -41,8 +41,7 @@ radius = 0.25
 [node name="MeshInstance3D" parent="MovableBlock/AnimatableBody3D" index="0"]
 mesh = SubResource("BoxMesh_4bh7v")
 
-[node name="Mirror" type="Node" parent="MovableBlock/AnimatableBody3D" index="7" node_paths=PackedStringArray("plus_z", "minus_x")]
-script = ExtResource("2_or7nr")
+[node name="Mirror" parent="MovableBlock/AnimatableBody3D" index="7" node_paths=PackedStringArray("plus_z", "minus_x") instance=ExtResource("2_mq1g7")]
 plus_z = [NodePath("../Laser2")]
 minus_x = [NodePath("../Laser")]
 

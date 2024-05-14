@@ -19,9 +19,6 @@ func _ready():
 	force_grid()
 
 func _process(_delta):
-	if moving:
-		return
-	
 	if has_player(plus_x):
 		move(Vector3.RIGHT)
 	elif has_player(minus_x):
@@ -32,6 +29,9 @@ func _process(_delta):
 		move(Vector3.BACK)
 
 func move(dir):
+	if moving:
+		return
+	
 	# Use a shapecast in order to make sure that the box is not moving into another box
 	box_cast.target_position = dir * STEP_SIZE
 	box_cast.force_shapecast_update()
