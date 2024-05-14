@@ -36,10 +36,10 @@ func reflect(laser_rot):
 	elif test(deg, -270):
 		activate(minus_x)
 		time_since_minus_x = 0
-	if test(deg, 0):
+	if test(deg, -90):
 		activate(plus_x)
 		time_since_plus_x = 0
-	elif test(deg, 360):
+	elif test(deg, 0):
 		activate(minus_z)
 		time_since_minus_z = 0
 
