@@ -8,7 +8,7 @@ extends Node3D
 func _ready():
 	ray_cast.add_exception(body)
 
-func _process(delta):
+func _process(_delta):
 	if !visible:
 		return
 	

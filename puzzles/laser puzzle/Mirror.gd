@@ -11,9 +11,9 @@ var time_since_minus_x = 0
 var time_since_minus_z = 0
 
 func _process(_delta):
-	if time_since_plus_z > 1:
+	if time_since_plus_z > 0:
 		deactivate(plus_z)
-	if time_since_minus_x > 1:
+	if time_since_minus_x > 0:
 		deactivate(minus_x)
 	
 	time_since_plus_z += 1
@@ -36,7 +36,7 @@ func test(deg, test):
 	var b = deg == test + 360
 	var c = deg == test - 360
 	return a || b || c
-
+	
 func activate(side: Array[Node3D]):
 	for i in side:
 		i.show()

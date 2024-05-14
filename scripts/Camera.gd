@@ -10,7 +10,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	var should_be_pos: Vector3
 	if !Global.puzzling:
 		var player_from_center = Global.player.global_position - center.global_position
