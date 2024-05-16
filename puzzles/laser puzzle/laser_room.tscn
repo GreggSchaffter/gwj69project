@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dyljlrb6vn1yy"]
+[gd_scene load_steps=8 format=3 uid="uid://dyljlrb6vn1yy"]
 
 [ext_resource type="Script" path="res://scripts/CameraActivator.gd" id="1_1x0yd"]
 [ext_resource type="PackedScene" uid="uid://cqn50q2w5e3dg" path="res://puzzles/laser puzzle/objects/two_sided_mirror.tscn" id="2_t8dlx"]
 [ext_resource type="PackedScene" uid="uid://1ciovxvkhwjq" path="res://puzzles/laser puzzle/objects/laser_emitter.tscn" id="3_q0jic"]
-[ext_resource type="PackedScene" uid="uid://b2alcsctijseq" path="res://puzzles/laser puzzle/objects/laser_blocker.tscn" id="4_yb0pg"]
-[ext_resource type="PackedScene" uid="uid://dmmff1wjutekn" path="res://puzzles/laser puzzle/objects/laser_catcher.tscn" id="5_l1e48"]
+[ext_resource type="PackedScene" uid="uid://l03o0cg68xdw" path="res://puzzles/laser puzzle/objects/transparent_mirror.tscn" id="6_pto6v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_373ce"]
 size = Vector3(20, 0, 20)
@@ -39,29 +38,16 @@ shape = SubResource("BoxShape3D_m6g6y")
 
 [node name="Blocks" type="Node3D" parent="."]
 
+[node name="TransparentMirror" parent="Blocks" instance=ExtResource("6_pto6v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 2)
+
 [node name="LaserEmitter" parent="Blocks" instance=ExtResource("3_q0jic")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -5)
-movable = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1)
 
 [node name="TwoSidedMirror" parent="Blocks" instance=ExtResource("2_t8dlx")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 0, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 4)
 
 [node name="TwoSidedMirror2" parent="Blocks" instance=ExtResource("2_t8dlx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
-
-[node name="TwoSidedMirror3" parent="Blocks" instance=ExtResource("2_t8dlx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
-
-[node name="TwoSidedMirror4" parent="Blocks" instance=ExtResource("2_t8dlx")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5, 0, -3)
-
-[node name="TwoSidedMirror5" parent="Blocks" instance=ExtResource("2_t8dlx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 3)
-
-[node name="LaserBlocker" parent="Blocks" instance=ExtResource("4_yb0pg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
-
-[node name="LaserCatcher" parent="Blocks" instance=ExtResource("5_l1e48")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -2, 0, 8)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3, 0, 5)
 
 [connection signal="body_entered" from="CameraActivator" to="CameraActivator" method="_on_body_entered"]
