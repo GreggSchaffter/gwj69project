@@ -31,6 +31,7 @@ size = Vector3(10, 2, 10)
 
 [node name="Segment" parent="Segments" instance=ExtResource("1_wyocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -3)
+rubbled = true
 
 [node name="Segment7" parent="Segments" instance=ExtResource("1_wyocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3)
@@ -43,6 +44,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -2)
 
 [node name="Segment22" parent="Segments" instance=ExtResource("1_wyocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -1)
+rubbled = true
 
 [node name="Segment9" parent="Segments" instance=ExtResource("1_wyocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)
@@ -61,6 +63,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 3)
 
 [node name="Segment14" parent="Segments" instance=ExtResource("1_wyocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 3)
+rubbled = true
 
 [node name="Segment15" parent="Segments" instance=ExtResource("1_wyocr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)

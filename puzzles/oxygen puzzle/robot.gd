@@ -29,6 +29,7 @@ func _input(event):
 		if going_to.distance_to(segment.position) < step_size / 2:
 			really_going = !segment.traveled
 			going_to = segment.position
+			segment.rubbled = false;
 	
 	if really_going:
 		for segment in segments_folder.get_children():
