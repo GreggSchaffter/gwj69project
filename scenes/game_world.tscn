@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_vcuue"]
 [ext_resource type="Script" path="res://scripts/CameraActivator.gd" id="2_eyww8"]
 [ext_resource type="Script" path="res://scripts/Camera.gd" id="2_nitq1"]
-[ext_resource type="PackedScene" uid="uid://ct3bqlowjvnm6" path="res://stuff/puzzle.tscn" id="3_tu7mj"]
+[ext_resource type="PackedScene" uid="uid://ct3bqlowjvnm6" path="res://stuff/models/puzzle.tscn" id="3_tu7mj"]
 [ext_resource type="PackedScene" uid="uid://dyljlrb6vn1yy" path="res://puzzles/laser puzzle/laser_room.tscn" id="5_nf73n"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vx2bk"]

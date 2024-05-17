@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://lebpmtfbncx"]
+
+[ext_resource type="ArrayMesh" uid="uid://w4jnoabnk724" path="res://stuff/level_proto.obj" id="1_5q8je"]
+
+[node name="LevelDesign" type="Node3D"]
+
+[node name="LevelProto" type="MeshInstance3D" parent="."]
+transform = Transform3D(223.431, 0, 0, 0, 223.431, 0, 0, 0, 223.431, 3.3679, 41.0897, 1.53066)
+mesh = ExtResource("1_5q8je")
