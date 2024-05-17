@@ -1,9 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://lebpmtfbncx"]
+[gd_scene load_steps=7 format=3 uid="uid://dypatkthx1wag"]
 
-[ext_resource type="ArrayMesh" uid="uid://w4jnoabnk724" path="res://stuff/level_proto.obj" id="1_5q8je"]
+[ext_resource type="PackedScene" uid="uid://bll3md6n0nkvn" path="res://stuff/models/Bunk_room_Base.fbx" id="1_yqidh"]
+[ext_resource type="PackedScene" uid="uid://kq4qndua33oq" path="res://stuff/models/cables_big.fbx" id="2_n6htq"]
+[ext_resource type="PackedScene" uid="uid://sd3vtnjsq6sa" path="res://stuff/models/cables_double_big.fbx" id="3_8iqy7"]
+[ext_resource type="PackedScene" uid="uid://drw21bjw1ikqm" path="res://stuff/models/cables_double_medium.fbx" id="4_u6iyp"]
+[ext_resource type="PackedScene" uid="uid://qe3r8vgt1e8y" path="res://stuff/models/cables_small.fbx" id="5_oohcf"]
+[ext_resource type="PackedScene" uid="uid://cuju5y7ha1g61" path="res://stuff/models/chair.fbx" id="6_vk5dk"]
 
 [node name="LevelDesign" type="Node3D"]
 
-[node name="LevelProto" type="MeshInstance3D" parent="."]
-transform = Transform3D(223.431, 0, 0, 0, 223.431, 0, 0, 0, 223.431, 3.3679, 41.0897, 1.53066)
-mesh = ExtResource("1_5q8je")
+[node name="Root Scene" parent="." instance=ExtResource("1_yqidh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 262.694, 229.351, 157.958)
+
+[node name="Root Scene2" parent="." instance=ExtResource("2_n6htq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 393.353, 301.864, 233.906)
+
+[node name="Root Scene3" parent="." instance=ExtResource("3_8iqy7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 548.453, 434.193, 331.882)
+
+[node name="Root Scene4" parent="." instance=ExtResource("4_u6iyp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 550.629, 434.551, 328.696)
+
+[node name="Root Scene5" parent="." instance=ExtResource("5_oohcf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 549.074, 434.152, 330.285)
+
+[node name="Root Scene6" parent="." instance=ExtResource("6_vk5dk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 307.666, 349.013, -27.18)
