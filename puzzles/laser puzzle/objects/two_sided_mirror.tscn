@@ -1,0 +1,67 @@
+[gd_scene load_steps=10 format=3 uid="uid://cqn50q2w5e3dg"]
+
+[ext_resource type="PackedScene" uid="uid://byj1h01xr5t52" path="res://puzzles/laser puzzle/movable_block.tscn" id="1_6b1kk"]
+[ext_resource type="Script" path="res://puzzles/laser puzzle/block.gd" id="1_vn7tr"]
+[ext_resource type="PackedScene" uid="uid://qihhrt4cuecd" path="res://puzzles/laser puzzle/laser.tscn" id="2_gn7ql"]
+[ext_resource type="PackedScene" uid="uid://bwhff16qho8wq" path="res://puzzles/laser puzzle/mirror.tscn" id="2_nocgm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_10ibc"]
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_i5hp4"]
+material = SubResource("StandardMaterial3D_10ibc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i2861"]
+metallic = 1.0
+roughness = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_yp3kv"]
+material = SubResource("StandardMaterial3D_i2861")
+size = Vector3(1, 1, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oiwd8"]
+size = Vector3(1, 1, 0)
+
+[node name="TwoSidedMirror" type="Node3D"]
+script = ExtResource("1_vn7tr")
+
+[node name="MovableBlock" parent="." instance=ExtResource("1_6b1kk")]
+
+[node name="MeshInstance3D" parent="MovableBlock/AnimatableBody3D" index="0"]
+mesh = SubResource("BoxMesh_i5hp4")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MovableBlock/AnimatableBody3D" index="7"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 1.5, 0)
+mesh = SubResource("BoxMesh_yp3kv")
+
+[node name="Collision" type="CollisionShape3D" parent="MovableBlock/AnimatableBody3D" index="8"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 1.5, 0)
+shape = SubResource("BoxShape3D_oiwd8")
+
+[node name="Mirror" parent="MovableBlock/AnimatableBody3D" index="9" node_paths=PackedStringArray("plus_x", "plus_z", "minus_x", "minus_z") instance=ExtResource("2_nocgm")]
+plus_x = [NodePath("../Laser3")]
+plus_z = [NodePath("../Laser2")]
+minus_x = [NodePath("../Laser")]
+minus_z = [NodePath("../Laser4")]
+
+[node name="Laser" parent="MovableBlock/AnimatableBody3D" index="10" node_paths=PackedStringArray("body") instance=ExtResource("2_gn7ql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+visible = false
+body = NodePath("..")
+
+[node name="Laser2" parent="MovableBlock/AnimatableBody3D" index="11" node_paths=PackedStringArray("body") instance=ExtResource("2_gn7ql")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.5, 0)
+visible = false
+body = NodePath("..")
+
+[node name="Laser3" parent="MovableBlock/AnimatableBody3D" index="12" node_paths=PackedStringArray("body") instance=ExtResource("2_gn7ql")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 1.5, 0)
+visible = false
+body = NodePath("..")
+
+[node name="Laser4" parent="MovableBlock/AnimatableBody3D" index="13" node_paths=PackedStringArray("body") instance=ExtResource("2_gn7ql")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 0, 1.5, 0)
+visible = false
+body = NodePath("..")
+
+[editable path="MovableBlock"]
