@@ -26,14 +26,15 @@ mesh = SubResource("PlaneMesh_uukry")
 
 [node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(0.317305, 0.397776, -0.860867, -9.45642e-09, 0.907777, 0.419452, 0.948324, -0.133094, 0.288042, -19.4989, 16.8785, 5.48)
+current = true
 
 [node name="CameraActivator" type="Area3D" parent="." node_paths=PackedStringArray("camera")]
-transform = Transform3D(-0.16904, 0, -0.985609, 0, 1, 0, 0.985609, 0, -0.16904, 6.4996, 2.2351, 6.27213)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.4996, 2.2351, -6.72787)
 script = ExtResource("1_1x0yd")
 camera = NodePath("../Camera")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CameraActivator"]
-transform = Transform3D(0.803836, 0, -0.594851, 0, 1, 0, 0.594851, 0, 0.803836, 0, 0, 0)
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0, 0, 0)
 shape = SubResource("BoxShape3D_m6g6y")
 
 [node name="Blocks" type="Node3D" parent="."]
