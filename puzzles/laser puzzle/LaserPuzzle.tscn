@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://dv5h0hl312ajg"]
+
+[ext_resource type="PackedScene" uid="uid://ct8s7s8q5vv0r" path="res://stuff/models/laser_target.fbx" id="1_n4jmi"]
+[ext_resource type="PackedScene" uid="uid://wxdn88dxldex" path="res://stuff/models/laser_emitter.fbx" id="2_nmscv"]
+[ext_resource type="PackedScene" uid="uid://8kuu67aua35w" path="res://stuff/models/mirror.fbx" id="3_7mckf"]
+[ext_resource type="PackedScene" uid="uid://dskxgndbnlg8m" path="res://stuff/models/pillar_laser.fbx" id="4_krqb3"]
+
+[node name="LaserPuzzle" type="Node3D"]
+
+[node name="Root Scene" parent="." instance=ExtResource("1_n4jmi")]
+
+[node name="Root Scene2" parent="." instance=ExtResource("2_nmscv")]
+
+[node name="Root Scene3" parent="." instance=ExtResource("3_7mckf")]
+transform = Transform3D(0.996906, 0, 0.0785983, 0, 1, 0, -0.0785983, 0, 0.996906, -8.28806, 0, -21.3953)
+
+[node name="Root Scene4" parent="." instance=ExtResource("4_krqb3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.04009, 0, -8.47978)

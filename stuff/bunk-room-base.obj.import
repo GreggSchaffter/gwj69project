@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dykuq4xmhty8"
+path="res://.godot/imported/bunk-room-base.obj-0e9ec65709bd0f8eac32c7ec1f45a498.mesh"
+
+[deps]
+
+files=["res://.godot/imported/bunk-room-base.obj-0e9ec65709bd0f8eac32c7ec1f45a498.mesh"]
+
+source_file="res://stuff/bunk-room-base.obj"
+dest_files=["res://.godot/imported/bunk-room-base.obj-0e9ec65709bd0f8eac32c7ec1f45a498.mesh", "res://.godot/imported/bunk-room-base.obj-0e9ec65709bd0f8eac32c7ec1f45a498.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

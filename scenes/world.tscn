@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://cqttmvaxu2xq0"]
+
+[ext_resource type="PackedScene" uid="uid://dypatkthx1wag" path="res://scenes/level_design.tscn" id="1_5bx26"]
+[ext_resource type="PackedScene" uid="uid://336mprp3ty7e" path="res://stuff/assets/Player.tscn" id="2_oamqd"]
+[ext_resource type="PackedScene" uid="uid://bs2jm62cmkbrk" path="res://addons/instant-realistic-light/light_scene.tscn" id="3_fgdc1"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_30gao"]
+sky_top_color = Color(0.697925, 0.685373, 0.714353, 1)
+sky_horizon_color = Color(0, 0, 0, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Sky" id="Sky_bawcj"]
+sky_material = SubResource("ProceduralSkyMaterial_30gao")
+
+[sub_resource type="Environment" id="Environment_pmclp"]
+background_mode = 2
+background_energy_multiplier = 2.5
+sky = SubResource("Sky_bawcj")
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_gn88m"]
+ground_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Sky" id="Sky_tyhie"]
+sky_material = SubResource("PhysicalSkyMaterial_gn88m")
+radiance_size = 2
+
+[sub_resource type="Environment" id="Environment_f8w8m"]
+background_mode = 2
+background_intensity = 100000.0
+sky = SubResource("Sky_tyhie")
+tonemap_mode = 3
+tonemap_white = 8.0
+ssao_enabled = true
+ssao_detail = 2.0
+sdfgi_enabled = true
+sdfgi_bounce_feedback = 0.9
+glow_enabled = true
+glow_normalized = true
+glow_bloom = 0.2
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.01
+volumetric_fog_gi_inject = 1.14
+volumetric_fog_anisotropy = 0.7
+volumetric_fog_sky_affect = 0.295
+adjustment_saturation = 1.17
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_qo5hu"]
+exposure_multiplier = 3.069
+auto_exposure_scale = 0.22
+auto_exposure_speed = 0.8
+dof_blur_far_distance = 1.44
+dof_blur_near_distance = 0.01
+auto_exposure_min_sensitivity = 8.01
+
+[node name="World" type="Node3D"]
+
+[node name="LevelDesign" parent="." instance=ExtResource("1_5bx26")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.902647, -0.308142, 0.300461, -0.00212054, 0.694934, 0.71907, -0.430376, -0.649704, 0.626627, 60.4333, 95.194, 344.537)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_pmclp")
+
+[node name="Player" parent="." instance=ExtResource("2_oamqd")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 35.1925, 19.5569, 275.901)
+
+[node name="@WorldEnvironment@33145" type="WorldEnvironment" parent="." instance=ExtResource("3_fgdc1")]
+environment = SubResource("Environment_f8w8m")
+camera_attributes = SubResource("CameraAttributesPractical_qo5hu")
