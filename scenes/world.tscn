@@ -64,8 +64,8 @@ transform = Transform3D(0.902647, -0.308142, 0.300461, -0.00212054, 0.694934, 0.
 environment = SubResource("Environment_pmclp")
 
 [node name="Player" parent="." instance=ExtResource("2_oamqd")]
-transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 35.1925, 19.5569, 275.901)
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 53.1925, 19.5569, 275.901)
 
-[node name="@WorldEnvironment@33145" type="WorldEnvironment" parent="." instance=ExtResource("3_fgdc1")]
+[node name="@WorldEnvironment@33145" parent="." instance=ExtResource("3_fgdc1")]
 environment = SubResource("Environment_f8w8m")
 camera_attributes = SubResource("CameraAttributesPractical_qo5hu")
