@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://betq2qwhkw2q0"]
+
+[ext_resource type="Texture2D" uid="uid://gxhagxmnn1tv" path="res://large_screen_ui_short.png" id="1_t0i70"]
+
+[sub_resource type="GDScript" id="GDScript_dtlns"]
+script/source = "extends Control
+
+
+func _input(event):
+	if event.is_action_pressed(\"ui_accept\"):
+		get_tree().change_scene_to_file(\"res://scenes/game_world.tscn\")
+"
+
+[node name="Start" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_dtlns")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -1024.0
+offset_right = 1024.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_t0i70")
+expand_mode = 2
+stretch_mode = 5

@@ -58,6 +58,8 @@ mesh = SubResource("CylinderMesh_acfn3")
 [node name="LaserCatcher" type="Node" parent="MovableBlock/AnimatableBody3D" index="10"]
 script = ExtResource("2_qubmm")
 
+[node name="Timer" type="Timer" parent="MovableBlock/AnimatableBody3D/LaserCatcher"]
+
 [node name="Flag" type="MeshInstance3D" parent="MovableBlock/AnimatableBody3D" index="11"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.33604, -0.377736)
 mesh = SubResource("BoxMesh_rn8cc")
@@ -67,5 +69,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0303
 mesh = ExtResource("4_it377")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_1c4p2")
+
+[connection signal="timeout" from="MovableBlock/AnimatableBody3D/LaserCatcher/Timer" to="MovableBlock/AnimatableBody3D/LaserCatcher" method="_on_timer_timeout"]
 
 [editable path="MovableBlock"]

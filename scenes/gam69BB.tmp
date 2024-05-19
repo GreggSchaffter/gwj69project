@@ -22,8 +22,8 @@ size = Vector3(10, 5, 1)
 [sub_resource type="GDScript" id="GDScript_7jmcp"]
 script/source = "extends Camera3D
 
-#func _ready():
-	#look_at(Global.player.global_position)
+func _ready():
+	look_at(Global.player.global_position)
 "
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ipxut"]
