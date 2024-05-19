@@ -1,36 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://dyljlrb6vn1yy"]
+[gd_scene load_steps=4 format=3 uid="uid://dyljlrb6vn1yy"]
 
 [ext_resource type="PackedScene" uid="uid://cqn50q2w5e3dg" path="res://puzzles/laser puzzle/objects/two_sided_mirror.tscn" id="2_t8dlx"]
 [ext_resource type="PackedScene" uid="uid://1ciovxvkhwjq" path="res://puzzles/laser puzzle/objects/laser_emitter.tscn" id="3_q0jic"]
 [ext_resource type="PackedScene" uid="uid://dmmff1wjutekn" path="res://puzzles/laser puzzle/objects/laser_catcher.tscn" id="3_vm3rs"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_373ce"]
-size = Vector3(20, 0, 20)
-
 [node name="LaserRoom" type="Node3D"]
-
-[node name="Static" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Static"]
-shape = SubResource("BoxShape3D_373ce")
 
 [node name="Blocks" type="Node3D" parent="."]
 
 [node name="LaserEmitter3" parent="Blocks" instance=ExtResource("3_q0jic")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.00541, 0, -5.97538)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -5)
 script = null
 
 [node name="LaserCatcher" parent="Blocks/LaserEmitter3" instance=ExtResource("3_vm3rs")]
 transform = Transform3D(-4.37115e-08, 1.28492e-21, -1, 1.38556e-13, 1, -1.05879e-20, 1, -1.38556e-13, -4.37115e-08, 6, -1.86265e-09, 5)
+movable = false
 
 [node name="TwoSidedMirror" parent="Blocks" instance=ExtResource("2_t8dlx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59727, 0.0176716, 4.82756)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 0, 5)
 
 [node name="TwoSidedMirror2" parent="Blocks" instance=ExtResource("2_t8dlx")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.17124, 0.0176716, -3.4034)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1, 0, -3)
 
 [node name="TwoSidedMirror4" parent="Blocks" instance=ExtResource("2_t8dlx")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.35315, 0.0176716, 2.5966)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, 3)
 
 [node name="TwoSidedMirror3" parent="Blocks" instance=ExtResource("2_t8dlx")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.68871, 0.0176716, -0.856269)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 0, -1)

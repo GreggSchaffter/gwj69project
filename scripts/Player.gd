@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 
 const SPEED = 10.0
-const JUMP_VELOCITY = 8
+const JUMP_VELOCITY = 4
 
 
 @onready var idle = $Idle

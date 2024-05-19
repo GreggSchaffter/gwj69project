@@ -15,6 +15,7 @@ func zap(laser_rot):
 	var deg = round(rad_to_deg(from_rot.y) / 90) * 90
 	
 	if test(deg, -180):
+		print("win")
 		flag.show()
 		since_zapped = 0
 
