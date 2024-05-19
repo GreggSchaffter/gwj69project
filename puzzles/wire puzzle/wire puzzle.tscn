@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c188l0qvfsb06" path="res://puzzles/wire puzzle/segment.tscn" id="1_6j3fu"]
 [ext_resource type="PackedScene" uid="uid://c4in7ubyg3ee3" path="res://puzzles/wire puzzle/segments/start_segment.tscn" id="2_fofjg"]
 [ext_resource type="PackedScene" uid="uid://p70aocf2fooq" path="res://puzzles/wire puzzle/segments/line_segment.tscn" id="2_kivls"]
-[ext_resource type="PackedScene" uid="uid://ct3bqlowjvnm6" path="res://stuff/puzzle.tscn" id="2_qbavx"]
+[ext_resource type="PackedScene" uid="uid://ct3bqlowjvnm6" path="res://stuff/models/puzzle.tscn" id="2_qbavx"]
 [ext_resource type="Script" path="res://puzzles/wire puzzle/SegmentSelecter.gd" id="3_jxn6q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_blgl2"]
