@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bsjxqxuds7glo"
+path="res://.godot/imported/laserbase.obj-eaa455a5e490dbdcd0d782a919a7c4db.mesh"
+
+[deps]
+
+files=["res://.godot/imported/laserbase.obj-eaa455a5e490dbdcd0d782a919a7c4db.mesh"]
+
+source_file="res://stuff/models/laserbase.obj"
+dest_files=["res://.godot/imported/laserbase.obj-eaa455a5e490dbdcd0d782a919a7c4db.mesh", "res://.godot/imported/laserbase.obj-eaa455a5e490dbdcd0d782a919a7c4db.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

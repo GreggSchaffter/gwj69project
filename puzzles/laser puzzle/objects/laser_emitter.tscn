@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://1ciovxvkhwjq"]
+[gd_scene load_steps=11 format=3 uid="uid://1ciovxvkhwjq"]
 
 [ext_resource type="Script" path="res://puzzles/laser puzzle/block.gd" id="1_licqk"]
 [ext_resource type="PackedScene" uid="uid://byj1h01xr5t52" path="res://puzzles/laser puzzle/movable_block.tscn" id="1_sn6yp"]
 [ext_resource type="PackedScene" uid="uid://qihhrt4cuecd" path="res://puzzles/laser puzzle/laser.tscn" id="2_ibpbj"]
+[ext_resource type="ArrayMesh" uid="uid://7lf0r8ulw2d5" path="res://stuff/models/laseremitter.obj" id="4_cfo8m"]
+[ext_resource type="Texture2D" uid="uid://51ixljlk573h" path="res://stuff/textures/texture.png" id="5_80c6x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rvxfa"]
 albedo_color = Color(1, 0, 0, 1)
@@ -17,16 +19,21 @@ size = Vector3(1, 1, 0.5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_sah5n"]
 size = Vector3(1, 1, 0.5)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sssji"]
+albedo_texture = ExtResource("5_80c6x")
+
 [node name="LaserEmitter" type="Node3D"]
 script = ExtResource("1_licqk")
 
 [node name="MovableBlock" parent="." instance=ExtResource("1_sn6yp")]
 
 [node name="MeshInstance3D" parent="MovableBlock/AnimatableBody3D" index="0"]
+visible = false
 mesh = SubResource("BoxMesh_58plw")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="MovableBlock/AnimatableBody3D" index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -0.25)
+visible = false
 mesh = SubResource("BoxMesh_w8wvw")
 
 [node name="Laser" parent="MovableBlock/AnimatableBody3D" index="8" node_paths=PackedStringArray("body") instance=ExtResource("2_ibpbj")]
@@ -36,5 +43,11 @@ body = NodePath("..")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="MovableBlock/AnimatableBody3D" index="9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -0.25)
 shape = SubResource("BoxShape3D_sah5n")
+
+[node name="Mesh" type="MeshInstance3D" parent="MovableBlock/AnimatableBody3D" index="10"]
+transform = Transform3D(-2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 0, 0, 0, 0.5, -0.042742, -0.0375147, -0.138591)
+mesh = ExtResource("4_cfo8m")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_sssji")
 
 [editable path="MovableBlock"]

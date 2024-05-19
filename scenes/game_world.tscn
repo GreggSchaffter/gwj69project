@@ -5,7 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://chqsqk3d53tuf" path="res://stuff/camera.tscn" id="3_jqxbs"]
 [ext_resource type="PackedScene" uid="uid://brye5gbqtkw0t" path="res://puzzles/oxygen puzzle/oxygen puzzle.tscn" id="4_2kom8"]
 [ext_resource type="PackedScene" uid="uid://dyljlrb6vn1yy" path="res://puzzles/laser puzzle/laser_room.tscn" id="5_nf73n"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://crfpq6b58ln6f" path="res://puzzles/wire puzzle/wire puzzle.tscn" id="6_200b0"]
+=======
+[ext_resource type="PackedScene" uid="uid://ct6x6im4gceo2" path="res://scenes/leveldesign.tscn" id="6_qqxyx"]
+>>>>>>> 567eb76f0220fafebd7b362327fb9f26509bde89
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vx2bk"]
 
@@ -20,25 +24,30 @@ material = SubResource("StandardMaterial3D_vifks")
 radius = 10.0
 height = 20.0
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_5rmkw"]
-size = Vector3(20, 0, 20)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_kpmf7"]
-size = Vector2(20, 20)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_d4djv"]
 size = Vector3(10, 5, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_sprh2"]
-size = Vector3(4, 0, 4)
+[sub_resource type="BoxShape3D" id="BoxShape3D_hwb52"]
+size = Vector3(26.9653, 1, 30.5468)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_v0rvw"]
-size = Vector2(4, 4)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ipxut"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0.29148, 0.714613, 0.846794, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Sky" id="Sky_d4hhw"]
+sky_material = SubResource("ProceduralSkyMaterial_ipxut")
+
+[sub_resource type="Environment" id="Environment_0vfyb"]
+background_mode = 2
+sky = SubResource("Sky_d4hhw")
+glow_enabled = true
+glow_normalized = true
 
 [node name="GameWorld" type="Node3D"]
 
 [node name="Player" type="CharacterBody3D" parent="." groups=["player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.1461, 1.64095, -32.3482)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.53322, 6.56616, 13.6746)
 script = ExtResource("1_vcuue")
 metadata/_edit_group_ = true
 
@@ -53,20 +62,20 @@ metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Void"]
+transform = Transform3D(0.737657, 0, 0, 0, 0.737657, 0, 0, 0, 0.737657, 5.88233, 5.35039, 0)
 mesh = SubResource("SphereMesh_fm7jb")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.866723, 2.30926e-14, 0.49879, -0.292131, 0.810543, 0.507621, -0.404291, -0.585679, 0.702516, 0, 11.8074, 11.2861)
+transform = Transform3D(0.866723, -1.29152e-08, 0.49879, -0.292131, 0.810543, 0.507621, -0.404291, -0.585679, 0.702516, 6.85908, 11.8074, 16.7769)
+light_energy = 0.192
 
 [node name="Map" type="Node3D" parent="."]
 
-[node name="LaserRoom" parent="Map" instance=ExtResource("5_nf73n")]
-transform = Transform3D(0.894154, 0, -0.447759, 0, 1, 0, 0.447759, 0, 0.894154, -40.81, 0, -31.674)
-
 [node name="RandomRoom" type="Node3D" parent="Map"]
-transform = Transform3D(0.614808, 0, -0.788676, 0, 1, 0, 0.788676, 0, 0.614808, -21.1852, 0, -55.5185)
+transform = Transform3D(0.614808, 0, -0.788676, 0, 1, 0, 0.788676, 0, 0.614808, -21.2238, -0.0923042, -55.6815)
 metadata/_edit_group_ = true
 
+<<<<<<< HEAD
 [node name="Static" type="StaticBody3D" parent="Map/RandomRoom"]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0)
 
@@ -79,39 +88,45 @@ mesh = SubResource("PlaneMesh_kpmf7")
 [node name="Camera" parent="Map/RandomRoom" instance=ExtResource("3_jqxbs")]
 transform = Transform3D(0.317305, 0.397776, -0.860867, 0, 0.907777, 0.419452, 0.948324, -0.133094, 0.288042, -19.499, 16.878, 5.48)
 
+=======
+>>>>>>> 567eb76f0220fafebd7b362327fb9f26509bde89
 [node name="CameraActivator" type="Area3D" parent="Map/RandomRoom" node_paths=PackedStringArray("camera")]
 transform = Transform3D(-0.16904, 0, -0.985609, 0, 1, 0, 0.985609, 0, -0.16904, 6.4996, 2.2351, 6.27213)
 script = ExtResource("2_eyww8")
-camera = NodePath("../Camera")
+camera = NodePath("../../../Camera")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/RandomRoom/CameraActivator"]
 transform = Transform3D(0.803836, 0, -0.594851, 0, 1, 0, 0.594851, 0, 0.803836, 0, 0, 0)
 shape = SubResource("BoxShape3D_d4djv")
 
+<<<<<<< HEAD
 [node name="OxygenPuzzle" parent="Map/RandomRoom" instance=ExtResource("4_2kom8")]
 transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -4.58773, 0, -3.57634)
 
 [node name="WirePuzzle" parent="Map/RandomRoom" instance=ExtResource("6_200b0")]
 transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, -5, 0.5, 9)
+=======
+[node name="LevelDesign" parent="." instance=ExtResource("6_qqxyx")]
+transform = Transform3D(0.58526, 0, 0, 0, 0.58526, 0, 0, 0, 0.58526, 6.10649, 3.87641, -0.275122)
+>>>>>>> 567eb76f0220fafebd7b362327fb9f26509bde89
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Map"]
-transform = Transform3D(0.976481, 0, -0.215605, 0, 1, 0, 0.215605, 0, 0.976481, -39.2481, 0, -14.9621)
-metadata/_edit_group_ = true
+[node name="LaserRoom" parent="." instance=ExtResource("5_nf73n")]
+transform = Transform3D(-0.999491, 0, 0.0318993, 0, 1, 0, -0.0318993, 0, -0.999491, -9.54583, 1.67249, -1.54749)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/StaticBody3D"]
-shape = SubResource("BoxShape3D_sprh2")
+[node name="Camera" parent="." instance=ExtResource("3_jqxbs")]
+transform = Transform3D(0.909053, -0.25853, 0.326779, -0.0446051, 0.71936, 0.693204, -0.414286, -0.644735, 0.642405, 9.12683, 9.57382, 18.8155)
+script = null
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/StaticBody3D"]
-mesh = SubResource("PlaneMesh_v0rvw")
+[node name="OxygenPuzzle" parent="." instance=ExtResource("4_2kom8")]
+transform = Transform3D(-0.0510634, 0, -0.998695, 0, 1, 0, 0.998695, 0, -0.0510634, 6.15423, 3.67722, -33.9757)
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="Map"]
-transform = Transform3D(0.723678, 0, -0.690138, 0, 1, 0, 0.690138, 0, 0.723678, -26.8299, 0, -40.0944)
-metadata/_edit_group_ = true
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/StaticBody3D2"]
-shape = SubResource("BoxShape3D_sprh2")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.87241, 3.41378, 14.7734)
+shape = SubResource("BoxShape3D_hwb52")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/StaticBody3D2"]
-mesh = SubResource("PlaneMesh_v0rvw")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0vfyb")
 
 [connection signal="body_entered" from="Map/RandomRoom/CameraActivator" to="Map/RandomRoom/CameraActivator" method="_on_body_entered"]
