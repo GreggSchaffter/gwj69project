@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://do3tksiypwn2t"]
+
+[ext_resource type="PackedScene" uid="uid://dc2jlxi0yimyp" path="res://stuff/models/handbook.fbx" id="1_ks2um"]
+
+[node name="Handbook" type="Node3D"]
+
+[node name="Root Scene" parent="." instance=ExtResource("1_ks2um")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0410868, 0.152151, -0.153492)

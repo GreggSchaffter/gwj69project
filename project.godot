@@ -11,12 +11,11 @@ config_version=5
 [application]
 
 config/name="Gwj 69 Project"
-run/main_scene="res://scenes/game_world.tscn"
+run/main_scene="res://scenes/world.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
-
 Global="*res://stuff/global.tscn"
 UI="*res://scenes/ui.tscn"
 

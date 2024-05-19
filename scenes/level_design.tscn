@@ -1,0 +1,56 @@
+[gd_scene load_steps=12 format=3 uid="uid://dypatkthx1wag"]
+
+[ext_resource type="ArrayMesh" uid="uid://dykuq4xmhty8" path="res://stuff/bunk-room-base.obj" id="1_7fi0m"]
+[ext_resource type="Texture2D" uid="uid://dfnourd3d1bjj" path="res://stuff/texture.png" id="2_0jahx"]
+[ext_resource type="ArrayMesh" uid="uid://cuq2iel6ov5t2" path="res://stuff/laser-room-base.obj" id="3_is0xo"]
+[ext_resource type="ArrayMesh" uid="uid://ejfyba126liv" path="res://stuff/pipes-room-base.obj" id="4_i8r3f"]
+[ext_resource type="ArrayMesh" uid="uid://b0mrhjpp3k2rd" path="res://stuff/table.obj" id="5_6u6kj"]
+[ext_resource type="ArrayMesh" uid="uid://bjstpxfd5afxq" path="res://stuff/chair.obj" id="6_517r4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_foamx"]
+albedo_texture = ExtResource("2_0jahx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbqi0"]
+albedo_texture = ExtResource("2_0jahx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j46vj"]
+albedo_texture = ExtResource("2_0jahx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_goimw"]
+albedo_texture = ExtResource("2_0jahx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s32ky"]
+albedo_texture = ExtResource("2_0jahx")
+
+[node name="LevelDesign" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8628, 0, 0)
+
+[node name="Laser-room-base" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 16.8212, 0, 12.1516)
+mesh = ExtResource("3_is0xo")
+surface_material_override/0 = SubResource("StandardMaterial3D_foamx")
+metadata/_edit_lock_ = true
+
+[node name="Pipes-room-base" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 16.7261, 6.10352e-05, 11.9155)
+mesh = ExtResource("4_i8r3f")
+surface_material_override/0 = SubResource("StandardMaterial3D_fbqi0")
+metadata/_edit_lock_ = true
+
+[node name="Bunk-room-table" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 8.29599, 0, 255.843)
+mesh = ExtResource("5_6u6kj")
+surface_material_override/0 = SubResource("StandardMaterial3D_j46vj")
+metadata/_edit_lock_ = true
+
+[node name="Bunk-room-chair" type="MeshInstance3D" parent="."]
+transform = Transform3D(7.4702, 0.0217681, -6.64798, -0.00611229, 9.99996, 0.0258754, 6.64801, -0.0152659, 7.47019, 35.7052, 0, 259.964)
+mesh = ExtResource("6_517r4")
+surface_material_override/0 = SubResource("StandardMaterial3D_goimw")
+metadata/_edit_lock_ = true
+
+[node name="Bunk-room-base" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 16.94, 0, 11.515)
+mesh = ExtResource("1_7fi0m")
+surface_material_override/0 = SubResource("StandardMaterial3D_s32ky")
+metadata/_edit_lock_ = true

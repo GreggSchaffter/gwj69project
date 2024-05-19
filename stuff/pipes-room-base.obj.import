@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ejfyba126liv"
+path="res://.godot/imported/pipes-room-base.obj-333c0a4055840a6a8fee47ed2421970f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/pipes-room-base.obj-333c0a4055840a6a8fee47ed2421970f.mesh"]
+
+source_file="res://stuff/pipes-room-base.obj"
+dest_files=["res://.godot/imported/pipes-room-base.obj-333c0a4055840a6a8fee47ed2421970f.mesh", "res://.godot/imported/pipes-room-base.obj-333c0a4055840a6a8fee47ed2421970f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
