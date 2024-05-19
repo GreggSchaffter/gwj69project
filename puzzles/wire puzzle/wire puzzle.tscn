@@ -1,0 +1,91 @@
+[gd_scene load_steps=9 format=3 uid="uid://crfpq6b58ln6f"]
+
+[ext_resource type="PackedScene" uid="uid://c188l0qvfsb06" path="res://puzzles/wire puzzle/segment.tscn" id="1_6j3fu"]
+[ext_resource type="PackedScene" uid="uid://c4in7ubyg3ee3" path="res://puzzles/wire puzzle/segments/start_segment.tscn" id="2_fofjg"]
+[ext_resource type="PackedScene" uid="uid://p70aocf2fooq" path="res://puzzles/wire puzzle/segments/line_segment.tscn" id="2_kivls"]
+[ext_resource type="PackedScene" uid="uid://ct3bqlowjvnm6" path="res://stuff/puzzle.tscn" id="2_qbavx"]
+[ext_resource type="Script" path="res://puzzles/wire puzzle/SegmentSelecter.gd" id="3_jxn6q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_blgl2"]
+size = Vector3(4, 3, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ikrcc"]
+size = Vector3(0.05, 1, 0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3hkeg"]
+size = Vector3(1, 0.05, 0.05)
+
+[node name="WirePuzzle" type="Node3D"]
+
+[node name="Segments" type="Node3D" parent="."]
+
+[node name="Segment" parent="Segments" instance=ExtResource("1_6j3fu")]
+
+[node name="Segment2" parent="Segments" instance=ExtResource("1_6j3fu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+
+[node name="Segment5" parent="Segments" instance=ExtResource("1_6j3fu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="Segment3" parent="Segments" instance=ExtResource("1_6j3fu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Segment4" parent="Segments" instance=ExtResource("1_6j3fu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 0)
+
+[node name="Segment6" parent="Segments" instance=ExtResource("1_6j3fu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 0)
+
+[node name="LineSegment" parent="Segments" instance=ExtResource("2_fofjg")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="LineSegment2" parent="Segments" instance=ExtResource("2_kivls")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 1, 1, 0)
+
+[node name="LineSegment3" parent="Segments" instance=ExtResource("2_kivls")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 2, 1, 0)
+
+[node name="Puzzle" parent="." node_paths=PackedStringArray("active_area", "camera_point") instance=ExtResource("2_qbavx")]
+active_area = NodePath("../Area3D")
+camera_point = NodePath("../Camera3D")
+
+[node name="Camera3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3)
+metadata/_edit_lock_ = true
+
+[node name="Area3D" type="Area3D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 0.5)
+shape = SubResource("BoxShape3D_blgl2")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.825153, 0, -0.564909, 0, 1, 0, 0.564909, 0, 0.825153, -2, 0, 3)
+spot_range = 14.9614
+spot_angle = 25.7817
+metadata/_edit_lock_ = true
+
+[node name="SegmentSelecter" type="Node3D" parent="."]
+visible = false
+script = ExtResource("3_jxn6q")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SegmentSelecter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.125)
+mesh = SubResource("BoxMesh_ikrcc")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="SegmentSelecter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.125)
+mesh = SubResource("BoxMesh_3hkeg")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="SegmentSelecter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0.125)
+mesh = SubResource("BoxMesh_3hkeg")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="SegmentSelecter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0.125)
+mesh = SubResource("BoxMesh_ikrcc")
+
+[connection signal="activated" from="Puzzle" to="SegmentSelecter" method="_on_puzzle_activated"]
+[connection signal="deactivated" from="Puzzle" to="SegmentSelecter" method="_on_puzzle_deactivated"]

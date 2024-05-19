@@ -6,6 +6,9 @@ const window_size = Vector2(1152, 648)
 @export var dist_from_edge = 40 : set = set_dist
 @export var hight = 40 : set = set_hight
 
+func _ready():
+	orient()
+
 
 func set_dist(new):
 	dist_from_edge = new

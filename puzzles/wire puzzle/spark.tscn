@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ce38g6i3vdts6"]
+
+[ext_resource type="Script" path="res://puzzles/wire puzzle/spark.gd" id="1_3o65f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f0c10"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_s6wup"]
+material = SubResource("StandardMaterial3D_f0c10")
+radius = 0.125
+height = 0.25
+
+[node name="Spark" type="PathFollow3D"]
+script = ExtResource("1_3o65f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_s6wup")

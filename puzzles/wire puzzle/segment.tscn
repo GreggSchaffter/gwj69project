@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c188l0qvfsb06"]
+
+[ext_resource type="Script" path="res://puzzles/wire puzzle/segment.gd" id="1_bjbc5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k6sp4"]
+albedo_color = Color(0.988235, 0.419608, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c6q5p"]
+material = SubResource("StandardMaterial3D_k6sp4")
+size = Vector3(1, 1, 0.1)
+
+[node name="Segment" type="Node3D" groups=["segment"]]
+script = ExtResource("1_bjbc5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.05)
+mesh = SubResource("BoxMesh_c6q5p")
+skeleton = NodePath("../..")

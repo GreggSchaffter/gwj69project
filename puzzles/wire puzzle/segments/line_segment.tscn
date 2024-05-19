@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://p70aocf2fooq"]
+
+[ext_resource type="PackedScene" uid="uid://c188l0qvfsb06" path="res://puzzles/wire puzzle/segment.tscn" id="1_2cc6c"]
+[ext_resource type="PackedScene" uid="uid://c3f1lwkhlb67y" path="res://puzzles/wire puzzle/path.tscn" id="2_ydsut"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uoncb"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ii5v1"]
+material = SubResource("StandardMaterial3D_uoncb")
+size = Vector3(0.1, 1, 0.1)
+
+[sub_resource type="Curve3D" id="Curve3D_ong73"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, -0.5, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[node name="LineSegment" type="Node3D" groups=["hasWire"]]
+
+[node name="Segment" parent="." instance=ExtResource("1_2cc6c")]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Segment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.15)
+mesh = SubResource("BoxMesh_ii5v1")
+metadata/_edit_lock_ = true
+
+[node name="Path" parent="Segment" instance=ExtResource("2_ydsut")]
+curve = SubResource("Curve3D_ong73")
