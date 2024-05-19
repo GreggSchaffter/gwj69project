@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dlvaqvb0vfyic"
+path="res://.godot/imported/lastertarget.obj-41fe9f9284c0587b22a726057a9f714c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/lastertarget.obj-41fe9f9284c0587b22a726057a9f714c.mesh"]
+
+source_file="res://stuff/models/lastertarget.obj"
+dest_files=["res://.godot/imported/lastertarget.obj-41fe9f9284c0587b22a726057a9f714c.mesh", "res://.godot/imported/lastertarget.obj-41fe9f9284c0587b22a726057a9f714c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

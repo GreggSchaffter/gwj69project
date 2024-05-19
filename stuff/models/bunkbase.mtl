@@ -1,0 +1,23 @@
+# Blender 3.5.0 MTL File: 'None'
+# www.blender.org
+
+newmtl Material.003
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 2
+map_Kd C:/Users/josia/Downloads/texture.png
+map_d C:/Users/josia/Downloads/texture.png
+
+newmtl MetalPlates010_1K.004
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd C:/Users/asus/AppData/Roaming/Blender Foundation/Blender/3.0/scripts/addons/Materials/MetalPlates010_1K-JPG/MetalPlates010_1K_Color.jpg
+map_Ns C:/Users/asus/AppData/Roaming/Blender Foundation/Blender/3.0/scripts/addons/Materials/MetalPlates010_1K-JPG/MetalPlates010_1K_Roughness.jpg
+map_refl C:/Users/asus/AppData/Roaming/Blender Foundation/Blender/3.0/scripts/addons/Materials/MetalPlates010_1K-JPG/MetalPlates010_1K_AmbientOcclusion.jpg
